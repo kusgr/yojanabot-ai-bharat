@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – YojanaBot AI for Bharat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="url(#bGD)"/>
+            <path d="M10 22 Q14 10 18 18 Q22 26 26 14" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="18" cy="18" r="3" fill="white" opacity="0.9"/>
+            <defs>
+              <linearGradient id="bGD" x1="0" y1="0" x2="36" y2="36">
+                <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">YojanaBot</span>
+        <span class="brand-tag">AI for Bharat</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html#chatSection" class="nav-cta">Open Chat</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mob-link">🏠 Home</a>
+      <a href="about.html" class="mob-link">ℹ️ About</a>
+      <a href="dashboard.html" class="mob-link active">📊 Dashboard</a>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD LAYOUT -->
+  <div class="dashboard-wrapper">
+
+    <!-- Dashboard Sidebar -->
+    <aside class="db-sidebar" id="dbSidebar">
+      <div class="db-sidebar-head">
+        <h3>📊 Dashboard</h3>
+      </div>
+
+      <nav class="db-nav">
+        <button class="db-nav-btn active" data-view="overview" onclick="switchView('overview', this)">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="2" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          Overview
+        </button>
+        <button class="db-nav-btn" data-view="schemes" onclick="switchView('schemes', this)">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4 6h12M4 10h8M4 14h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          All Schemes
+        </button>
+        <button class="db-nav-btn" data-view="categories" onclick="switchView('categories', this)">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          By Category
+        </button>
+      </nav>
+
+      <div class="db-sidebar-divider"></div>
+
+      <div class="db-quick-stats">
+        <p class="db-sidebar-label">Quick Stats</p>
+        <div class="db-stat-row">
+          <span class="db-stat-dot" style="background:#3b82f6"></span>
+          <span class="db-stat-name">Student</span>
+          <span class="db-stat-val" id="qs-student">—</span>
+        </div>
+        <div class="db-stat-row">
+          <span class="db-stat-dot" style="background:#10b981"></span>
+          <span class="db-stat-name">Farmer</span>
+          <span class="db-stat-val" id="qs-farmer">—</span>
+        </div>
+        <div class="db-stat-row">
+          <span class="db-stat-dot" style="background:#ec4899"></span>
+          <span class="db-stat-name">Women</span>
+          <span class="db-stat-val" id="qs-women">—</span>
+        </div>
+        <div class="db-stat-row">
+          <span class="db-stat-dot" style="background:#f59e0b"></span>
+          <span class="db-stat-name">Employment</span>
+          <span class="db-stat-val" id="qs-employment">—</span>
+        </div>
+        <div class="db-stat-row">
+          <span class="db-stat-dot" style="background:#8b5cf6"></span>
+          <span class="db-stat-name">Health</span>
+          <span class="db-stat-val" id="qs-health">—</span>
+        </div>
+      </div>
+
+      <div class="db-sidebar-footer">
+        <a href="index.html#chatSection" class="db-chat-link">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M18 10c0 4.418-3.582 8-8 8a7.98 7.98 0 01-4-1.07L2 18l1.07-4A7.98 7.98 0 012 10C2 5.582 5.582 2 10 2s8 3.582 8 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Open AI Chat
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="db-main" id="dbMain">
+
+      <!-- ── VIEW: OVERVIEW ── -->
+      <div class="db-view active" id="view-overview">
+        <div class="db-page-header">
+          <div>
+            <h1 class="db-page-title">Scheme Overview</h1>
+            <p class="db-page-sub">Real-time summary of all government welfare schemes</p>
+          </div>
+          <a href="index.html#chatSection" class="btn-primary db-header-btn">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-5h2v5zm0-7H9V4h2v2z" fill="currentColor"/></svg>
+            Ask YojanaBot
+          </a>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="db-stats-grid" id="dbStatsGrid"></div>
+
+        <!-- Visual Bar Chart -->
+        <div class="db-chart-section">
+          <div class="db-section-header">
+            <h3>Schemes by Category</h3>
+            <span class="db-badge" id="totalBadge">0 Total</span>
+          </div>
+          <div class="db-chart" id="dbChart"></div>
+        </div>
+
+        <!-- Featured Schemes -->
+        <div class="db-section-header" style="margin-top:32px;">
+          <h3>Featured Schemes</h3>
+          <button class="db-see-all" onclick="switchView('schemes', document.querySelector('[data-view=schemes]'))">See All →</button>
+        </div>
+        <div class="db-schemes-grid" id="featuredGrid"></div>
+      </div>
+
+      <!-- ── VIEW: ALL SCHEMES ── -->
+      <div class="db-view" id="view-schemes">
+        <div class="db-page-header">
+          <div>
+            <h1 class="db-page-title">All Schemes</h1>
+            <p class="db-page-sub" id="schemesCountLabel">Loading schemes...</p>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="db-controls">
+          <div class="db-search-wrap">
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M15 15l-3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input type="text" id="schemeSearch" placeholder="Search schemes by name, benefit, keyword..." class="db-search-input" />
+            <button class="db-search-clear hidden" id="searchClear">✕</button>
+          </div>
+          <div class="db-filter-tabs" id="filterTabs">
+            <button class="db-filter-tab active" data-cat="all">All</button>
+          </div>
+        </div>
+
+        <div class="db-schemes-grid" id="allSchemesGrid"></div>
+        <div class="db-no-results hidden" id="dbNoResults">
+          <div class="no-res-icon">🔍</div>
+          <h4>No schemes found</h4>
+          <p>Try a different keyword or category filter</p>
+        </div>
+      </div>
+
+      <!-- ── VIEW: BY CATEGORY ── -->
+      <div class="db-view" id="view-categories">
+        <div class="db-page-header">
+          <div>
+            <h1 class="db-page-title">Browse by Category</h1>
+            <p class="db-page-sub">Explore schemes organized by beneficiary group</p>
+          </div>
+        </div>
+        <div id="categorySections"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" style="position:relative;z-index:1;">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">YojanaBot</span>
+        <span>— AI for Bharat 🇮🇳</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <p class="footer-note">Built for Hackathon · Data sourced from official Indian government portals</p>
+    </div>
+  </footer>
+
+  <script>
+  /* ══════════════════════════════
+     Dashboard Script
+  ══════════════════════════════ */
+  let ALL_SCHEMES = [];
+  let ALL_CATS    = [];
+  let currentFilter = 'all';
+  let searchQuery   = '';
+
+  const CAT_COLORS = {
+    student:    '#3b82f6',
+    farmer:     '#10b981',
+    women:      '#ec4899',
+    employment: '#f59e0b',
+    health:     '#8b5cf6'
+  };
+
+  // Load data
+  async function loadData() {
+    try {
+      const res = await fetch('schemes.json');
+      const data = await res.json();
+      ALL_SCHEMES = data.schemes;
+      ALL_CATS    = data.categories;
+    } catch {
+      ALL_SCHEMES = [];
+      ALL_CATS    = [
+        { id:'student', label:'Student', icon:'🎓' },
+        { id:'farmer',  label:'Farmer',  icon:'🌾' },
+        { id:'women',   label:'Women Welfare', icon:'👩' },
+        { id:'employment', label:'Employment', icon:'💼' },
+        { id:'health',  label:'Health',  icon:'🏥' }
+      ];
+    }
+    initDashboard();
+  }
+
+  function initDashboard() {
+    renderStats();
+    renderChart();
+    renderFeatured();
+    renderAllSchemes();
+    renderCategoryView();
+    buildFilterTabs();
+    updateQuickStats();
+    document.getElementById('totalBadge').textContent = ALL_SCHEMES.length + ' Total';
+    document.getElementById('schemesCountLabel').textContent = ALL_SCHEMES.length + ' schemes available';
+  }
+
+  // ─── Stats Grid ───
+  function renderStats() {
+    const grid = document.getElementById('dbStatsGrid');
+    const stats = [
+      { label:'Total Schemes', value: ALL_SCHEMES.length, icon:'📋', color:'#3b82f6' },
+      { label:'Categories',    value: ALL_CATS.length,    icon:'🗂️',  color:'#10b981' },
+      { label:'Central Schemes', value: ALL_SCHEMES.filter(s=>s.state==='all').length, icon:'🏛️', color:'#f59e0b' },
+      { label:'Languages',    value: 2,                   icon:'🌐', color:'#8b5cf6' },
+    ];
+    grid.innerHTML = stats.map(s => `
+      <div class="db-stat-card" style="--accent:${s.color}">
+        <div class="db-stat-icon">${s.icon}</div>
+        <div class="db-stat-body">
+          <div class="db-stat-num">${s.value}</div>
+          <div class="db-stat-label">${s.label}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ─── Bar Chart ───
+  function renderChart() {
+    const chart = document.getElementById('dbChart');
+    const max = Math.max(...ALL_CATS.map(c => ALL_SCHEMES.filter(s=>s.category===c.id).length));
+    chart.innerHTML = ALL_CATS.map(cat => {
+      const count = ALL_SCHEMES.filter(s => s.category === cat.id).length;
+      const pct   = max > 0 ? (count / max * 100) : 0;
+      const color = CAT_COLORS[cat.id] || '#3b82f6';
+      return `
+        <div class="chart-row">
+          <div class="chart-label">
+            <span>${cat.icon}</span>
+            <span>${cat.label}</span>
+          </div>
+          <div class="chart-bar-wrap">
+            <div class="chart-bar" style="--pct:${pct}%;--color:${color}"></div>
+          </div>
+          <div class="chart-count" style="color:${color}">${count}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ─── Featured ───
+  function renderFeatured() {
+    const grid = document.getElementById('featuredGrid');
+    const featured = ALL_SCHEMES.slice(0, 6);
+    grid.innerHTML = featured.map(s => schemeCard(s)).join('');
+    animateCards(grid);
+  }
+
+  // ─── All Schemes ───
+  function renderAllSchemes() {
+    const grid = document.getElementById('allSchemesGrid');
+    let filtered = ALL_SCHEMES.filter(s => {
+      const catMatch = currentFilter === 'all' || s.category === currentFilter;
+      const q = searchQuery.toLowerCase();
+      const textMatch = !q || [s.name, s.benefits, s.eligibility, ...(s.tags||[])].join(' ').toLowerCase().includes(q);
+      return catMatch && textMatch;
+    });
+    document.getElementById('schemesCountLabel').textContent = `${filtered.length} of ${ALL_SCHEMES.length} schemes shown`;
+    const noRes = document.getElementById('dbNoResults');
+    if (filtered.length === 0) {
+      grid.innerHTML = '';
+      noRes.classList.remove('hidden');
+    } else {
+      noRes.classList.add('hidden');
+      grid.innerHTML = filtered.map(s => schemeCard(s)).join('');
+      animateCards(grid);
+    }
+  }
+
+  // ─── Category View ───
+  function renderCategoryView() {
+    const container = document.getElementById('categorySections');
+    container.innerHTML = ALL_CATS.map(cat => {
+      const schemes = ALL_SCHEMES.filter(s => s.category === cat.id);
+      const color = CAT_COLORS[cat.id] || '#3b82f6';
+      return `
+        <div class="cat-section">
+          <div class="cat-section-header" style="--accent:${color}">
+            <div class="cat-section-title">
+              <span class="cat-section-icon">${cat.icon}</span>
+              <h3>${cat.label}</h3>
+              <span class="cat-section-count" style="background:${color}22;color:${color};border-color:${color}44">${schemes.length} schemes</span>
+            </div>
+          </div>
+          <div class="db-schemes-grid cat-schemes-grid">
+            ${schemes.map(s => schemeCard(s)).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ─── Scheme Card Template ───
+  function schemeCard(s) {
+    const color = CAT_COLORS[s.category] || '#3b82f6';
+    const catLabel = ALL_CATS.find(c => c.id === s.category)?.label || s.category;
+    return `
+      <div class="db-scheme-card" style="--accent:${color}">
+        <div class="db-card-top">
+          <span class="db-card-emoji">${s.icon || '📋'}</span>
+          <div class="db-card-title-wrap">
+            <div class="db-card-name">${s.name}</div>
+            <span class="db-card-cat" style="background:${color}18;color:${color};border-color:${color}33">${catLabel}</span>
+          </div>
+        </div>
+        <div class="db-card-details">
+          <div class="db-detail-row">
+            <span class="db-detail-label">Benefits</span>
+            <span class="db-detail-val benefit">${s.benefits}</span>
+          </div>
+          <div class="db-detail-row">
+            <span class="db-detail-label">Eligible</span>
+            <span class="db-detail-val">${s.eligibility}</span>
+          </div>
+        </div>
+        <a href="${s.applyUrl}" target="_blank" rel="noopener" class="db-apply-btn" style="background:linear-gradient(135deg,${color},${color}cc)">
+          Apply Now
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    `;
+  }
+
+  // ─── Filter Tabs ───
+  function buildFilterTabs() {
+    const tabs = document.getElementById('filterTabs');
+    const allBtn = tabs.querySelector('[data-cat="all"]');
+    allBtn.addEventListener('click', () => setFilter('all', allBtn));
+
+    ALL_CATS.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'db-filter-tab';
+      btn.dataset.cat = cat.id;
+      btn.innerHTML = `${cat.icon} ${cat.label}`;
+      btn.addEventListener('click', () => setFilter(cat.id, btn));
+      tabs.appendChild(btn);
+    });
+  }
+
+  function setFilter(catId, btn) {
+    currentFilter = catId;
+    document.querySelectorAll('.db-filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderAllSchemes();
+  }
+
+  // ─── Quick Stats Sidebar ───
+  function updateQuickStats() {
+    ['student','farmer','women','employment','health'].forEach(cat => {
+      const el = document.getElementById('qs-' + cat);
+      if (el) el.textContent = ALL_SCHEMES.filter(s => s.category === cat).length;
+    });
+  }
+
+  // ─── View Switcher ───
+  window.switchView = function(viewId, btn) {
+    document.querySelectorAll('.db-view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.db-nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('view-' + viewId).classList.add('active');
+    if (btn) btn.classList.add('active');
+    document.getElementById('dbMain').scrollTo(0, 0);
+  };
+
+  // ─── Search ───
+  const searchInput = document.getElementById('schemeSearch');
+  const searchClear = document.getElementById('searchClear');
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value.trim();
+    searchClear.classList.toggle('hidden', !searchQuery);
+    renderAllSchemes();
+  });
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    searchQuery = '';
+    searchClear.classList.add('hidden');
+    renderAllSchemes();
+  });
+
+  // ─── Animate Cards ───
+  function animateCards(grid) {
+    const cards = grid.querySelectorAll('.db-scheme-card');
+    cards.forEach((c, i) => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(16px)';
+      c.style.transition = `opacity 0.35s ease ${i * 0.05}s, transform 0.35s ease ${i * 0.05}s`;
+      requestAnimationFrame(() => {
+        c.style.opacity = '1';
+        c.style.transform = 'translateY(0)';
+      });
+    });
+  }
+
+  // ─── Navbar ───
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+
+  loadData();
+  </script>
+</body>
+</html>

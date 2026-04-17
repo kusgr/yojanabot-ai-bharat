@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YojanaBot – AI for Bharat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ─── NAVBAR ─── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="url(#bG1)"/>
+            <path d="M10 22 Q14 10 18 18 Q22 26 26 14" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="18" cy="18" r="3" fill="white" opacity="0.9"/>
+            <defs>
+              <linearGradient id="bG1" x1="0" y1="0" x2="36" y2="36">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">YojanaBot</span>
+        <span class="brand-tag">AI for Bharat</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="state-selector-wrap">
+          <svg class="select-icon" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/>
+          </svg>
+          <select id="stateSelect" class="state-select">
+            <option value="all">All States</option>
+          </select>
+        </div>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch Language">
+          <span class="lang-en active">EN</span>
+          <span class="lang-divider">|</span>
+          <span class="lang-hi">हि</span>
+        </button>
+        <button class="nav-cta" onclick="scrollToChat()" data-en="Try Now" data-hi="अभी आज़माएं">Try Now</button>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mob-link active">🏠 Home</a>
+      <a href="about.html" class="mob-link">ℹ️ About</a>
+      <a href="dashboard.html" class="mob-link">📊 Dashboard</a>
+      <div class="mob-divider"></div>
+      <button class="mob-link" onclick="closeMobileMenu(); scrollToChat();">💬 Open Chat</button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span data-en="Powered by AI · Voice Enabled · 18+ Schemes" data-hi="AI द्वारा संचालित · वॉयस सक्षम · 18+ योजनाएं">Powered by AI · Voice Enabled · 18+ Schemes</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line-1" data-en="Discover Schemes" data-hi="योजनाएं खोजें">Discover Schemes</span>
+        <span class="title-line-2"><span class="gradient-text" data-en="Made for You" data-hi="आपके लिए">Made for You</span></span>
+      </h1>
+      <p class="hero-subtitle" data-en="Your AI companion for navigating India's government welfare programs. Ask in English or Hindi — by typing or speaking." data-hi="भारत की सरकारी कल्याण योजनाओं में मार्गदर्शन के लिए आपका AI साथी। अंग्रेजी या हिंदी में टाइप या बोलकर पूछें।">
+        Your AI companion for navigating India's government welfare programs. Ask in English or Hindi — by typing or speaking.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-chip"><span class="stat-num">18+</span><span class="stat-label" data-en="Schemes" data-hi="योजनाएं">Schemes</span></div>
+        <div class="stat-chip"><span class="stat-num">5</span><span class="stat-label" data-en="Categories" data-hi="श्रेणियाँ">Categories</span></div>
+        <div class="stat-chip"><span class="stat-num">2</span><span class="stat-label" data-en="Languages" data-hi="भाषाएं">Languages</span></div>
+        <div class="stat-chip voice-stat-chip"><span class="stat-num">🎙️</span><span class="stat-label" data-en="Voice AI" data-hi="वॉयस AI">Voice AI</span></div>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="scrollToChat()">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-5h2v5zm0-7H9V4h2v2z" fill="currentColor"/></svg>
+          <span data-en="Chat with YojanaBot" data-hi="YojanaBot से बात करें">Chat with YojanaBot</span>
+        </button>
+        <button class="btn-secondary" onclick="showAllSchemes()">
+          <span data-en="Browse All Schemes" data-hi="सभी योजनाएं देखें">Browse All Schemes</span>
+          <svg viewBox="0 0 20 20" fill="none"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-card main-card">
+        <div class="card-header-mini">
+          <div class="avatar-mini bot">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#3b82f6" opacity="0.2"/><path d="M8 12h8M12 8v8" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="online-tag">YojanaBot · Online</span>
+          <div class="voice-pill"><span class="voice-dot"></span><span>Voice Ready</span></div>
+        </div>
+        <div class="preview-bubbles">
+          <div class="preview-bubble user-bubble"><span>🎙️ I'm a farmer in UP</span></div>
+          <div class="preview-bubble bot-bubble"><span>Found 4 schemes for you! 🎉</span></div>
+          <div class="preview-scheme-card">
+            <div class="mini-scheme">
+              <span class="mini-icon">🌾</span>
+              <div><div class="mini-name">PM Kisan Yojana</div><div class="mini-benefit">₹6,000/year benefit</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="floating-chip chip-1"><span>🎓</span> <span>Students</span></div>
+      <div class="floating-chip chip-2"><span>🎙️</span> <span>Voice Input</span></div>
+      <div class="floating-chip chip-3"><span>🏥</span> <span>Health</span></div>
+    </div>
+  </section>
+
+  <!-- ─── APP SECTION ─── -->
+  <section class="app-section" id="chatSection">
+    <div class="app-container">
+
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h3 data-en="Categories" data-hi="श्रेणियाँ">Categories</h3>
+          <button class="sidebar-close" id="sidebarClose">✕</button>
+        </div>
+        <div class="category-list" id="categoryList"></div>
+        <div class="sidebar-divider"></div>
+        <div class="quick-prompts">
+          <p class="sidebar-label" data-en="Quick Ask" data-hi="त्वरित पूछें">Quick Ask</p>
+          <div class="prompt-chips" id="promptChips">
+            <button class="prompt-chip" data-prompt="I am a student looking for scholarships">🎓 <span data-en="Student scholarships" data-hi="छात्र छात्रवृत्ति">Student scholarships</span></button>
+            <button class="prompt-chip" data-prompt="I am a farmer and need financial help">🌾 <span data-en="Farmer support" data-hi="किसान सहायता">Farmer support</span></button>
+            <button class="prompt-chip" data-prompt="Health insurance schemes for my family">🏥 <span data-en="Health cover" data-hi="स्वास्थ्य कवर">Health cover</span></button>
+            <button class="prompt-chip" data-prompt="I want to start a business and need loan">💼 <span data-en="Business loan" data-hi="व्यापार ऋण">Business loan</span></button>
+            <button class="prompt-chip" data-prompt="Welfare schemes for women">👩 <span data-en="Women welfare" data-hi="महिला कल्याण">Women welfare</span></button>
+          </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-nav-links">
+          <a href="index.html" class="snav-link active">🏠 <span data-en="Home" data-hi="होम">Home</span></a>
+          <a href="about.html" class="snav-link">ℹ️ <span data-en="About" data-hi="हमारे बारे में">About</span></a>
+          <a href="dashboard.html" class="snav-link">📊 <span data-en="Dashboard" data-hi="डैशबोर्ड">Dashboard</span></a>
+        </div>
+        <div class="sidebar-footer">
+          <div class="powered-by">
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#3b82f6" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span data-en="Govt. Verified Data" data-hi="सरकारी सत्यापित डेटा">Govt. Verified Data</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="chat-main">
+        <div class="chat-topbar">
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="chat-title-area">
+            <div class="bot-status-dot"></div>
+            <span class="chat-title-text" data-en="YojanaBot" data-hi="योजनाबॉट">YojanaBot</span>
+            <span class="chat-status" data-en="Online · Voice Enabled 🎙️" data-hi="ऑनलाइन · वॉयस सक्षम 🎙️">Online · Voice Enabled 🎙️</span>
+          </div>
+          <div class="topbar-right">
+            <a href="dashboard.html" class="topbar-icon-btn" title="Dashboard">
+              <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="2" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <button class="clear-chat-btn" id="clearChat" title="Clear chat">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M6 2h8l1 3H5L6 2zM4 6h12l-1 12H5L4 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <!-- Voice Status Bar -->
+        <div class="voice-status-bar hidden" id="voiceStatusBar">
+          <div class="voice-wave">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <span class="voice-status-text" id="voiceStatusText" data-en="Listening... Speak now" data-hi="सुन रहा हूं... बोलें">Listening... Speak now</span>
+          <button class="voice-cancel-btn" id="voiceCancelBtn" data-en="Cancel" data-hi="रद्द करें">Cancel</button>
+        </div>
+
+        <div class="chat-input-area">
+          <div class="input-wrapper">
+            <textarea
+              id="chatInput"
+              class="chat-textarea"
+              placeholder="Ask about schemes... (e.g. 'I am a student looking for scholarship')"
+              rows="1"
+              data-placeholder-en="Ask about schemes... or click 🎙️ to speak"
+              data-placeholder-hi="योजनाओं के बारे में पूछें... या 🎙️ बोलने के लिए क्लिक करें"
+            ></textarea>
+            <button class="voice-btn" id="voiceBtn" aria-label="Voice Input" title="Click to speak">
+              <svg class="mic-icon" viewBox="0 0 24 24" fill="none">
+                <rect x="9" y="2" width="6" height="12" rx="3" fill="currentColor"/>
+                <path d="M5 11a7 7 0 0014 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 18v4M9 22h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <svg class="stop-icon hidden" viewBox="0 0 24 24" fill="none">
+                <rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+              </svg>
+            </button>
+            <button class="send-btn" id="sendBtn" aria-label="Send">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="input-disclaimer" data-en="🎙️ Voice typing supported in English & Hindi · Always verify at official govt. portals." data-hi="🎙️ अंग्रेजी और हिंदी में वॉयस टाइपिंग समर्थित · आधिकारिक सरकारी पोर्टल पर सत्यापित करें।">🎙️ Voice typing supported in English & Hindi · Always verify at official govt. portals.</p>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES STRIP ─── -->
+  <section class="features-strip">
+    <div class="features-inner">
+      <div class="feature-item">
+        <span class="f-icon">🎙️</span>
+        <div>
+          <h4 data-en="Voice Typing" data-hi="वॉयस टाइपिंग">Voice Typing</h4>
+          <p data-en="Speak in English or Hindi" data-hi="अंग्रेजी या हिंदी में बोलें">Speak in English or Hindi</p>
+        </div>
+      </div>
+      <div class="feature-sep"></div>
+      <div class="feature-item">
+        <span class="f-icon">⚡</span>
+        <div>
+          <h4 data-en="Instant Results" data-hi="तत्काल परिणाम">Instant Results</h4>
+          <p data-en="No forms, just conversation" data-hi="कोई फॉर्म नहीं, बस बातचीत">No forms, just conversation</p>
+        </div>
+      </div>
+      <div class="feature-sep"></div>
+      <div class="feature-item">
+        <span class="f-icon">🌐</span>
+        <div>
+          <h4 data-en="Bilingual AI" data-hi="द्विभाषी AI">Bilingual AI</h4>
+          <p data-en="English + Hindi support" data-hi="अंग्रेजी + हिंदी समर्थन">English + Hindi support</p>
+        </div>
+      </div>
+      <div class="feature-sep"></div>
+      <div class="feature-item">
+        <span class="f-icon">🏛️</span>
+        <div>
+          <h4 data-en="Govt. Verified" data-hi="सरकार द्वारा सत्यापित">Govt. Verified</h4>
+          <p data-en="Official scheme data only" data-hi="केवल आधिकारिक योजना डेटा">Official scheme data only</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">YojanaBot</span>
+        <span data-en="— AI for Bharat 🇮🇳" data-hi="— भारत के लिए AI 🇮🇳">— AI for Bharat 🇮🇳</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <p class="footer-note" data-en="Built for Hackathon · Data sourced from official Indian government portals" data-hi="हैकाथॉन के लिए बनाया गया · आधिकारिक भारतीय सरकारी पोर्टलों से डेटा">
+        Built for Hackathon · Data sourced from official Indian government portals
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

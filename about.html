@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – YojanaBot AI for Bharat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="url(#bGA)"/>
+            <path d="M10 22 Q14 10 18 18 Q22 26 26 14" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="18" cy="18" r="3" fill="white" opacity="0.9"/>
+            <defs>
+              <linearGradient id="bGA" x1="0" y1="0" x2="36" y2="36">
+                <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">YojanaBot</span>
+        <span class="brand-tag">AI for Bharat</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html#chatSection" class="nav-cta">Try Chatbot</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mob-link">🏠 Home</a>
+      <a href="about.html" class="mob-link active">ℹ️ About</a>
+      <a href="dashboard.html" class="mob-link">📊 Dashboard</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-badge">
+        <span class="badge-dot"></span>
+        <span>Our Story · Mission · Team</span>
+      </div>
+      <h1 class="page-hero-title">
+        Built for <span class="gradient-text">Bharat's</span> Citizens
+      </h1>
+      <p class="page-hero-sub">YojanaBot is an open-access AI chatbot that helps every Indian citizen — regardless of literacy level or digital expertise — discover government schemes they are entitled to.</p>
+    </div>
+  </section>
+
+  <!-- MISSION SECTION -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="section-label-row">
+        <span class="section-pill">🎯 Mission</span>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card glass-card">
+          <div class="mission-icon">🇮🇳</div>
+          <h3>The Problem</h3>
+          <p>India has <strong>hundreds of welfare schemes</strong> across central and state governments — but awareness remains critically low. Millions of eligible citizens miss out simply because they don't know a scheme exists.</p>
+        </div>
+        <div class="mission-card glass-card highlight-card">
+          <div class="mission-icon">🤖</div>
+          <h3>Our Solution</h3>
+          <p>YojanaBot uses AI-powered natural language understanding to bridge this gap. Citizens simply describe their situation — in <strong>English or Hindi</strong>, by typing or speaking — and instantly get matched schemes.</p>
+        </div>
+        <div class="mission-card glass-card">
+          <div class="mission-icon">🌱</div>
+          <h3>Our Vision</h3>
+          <p>A future where <strong>zero eligible citizen</strong> misses out on government benefits because of information asymmetry. We want every farmer, student, and woman to know their entitlements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT NUMBERS -->
+  <section class="impact-section">
+    <div class="about-inner">
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-num gradient-text">18+</div>
+          <div class="impact-label">Government Schemes</div>
+          <div class="impact-sub">Curated from official portals</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num gradient-text">5</div>
+          <div class="impact-label">Key Categories</div>
+          <div class="impact-sub">Student, Farmer, Women, Health, Employment</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num gradient-text">2</div>
+          <div class="impact-label">Languages</div>
+          <div class="impact-sub">English & Hindi — with voice support</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num gradient-text">∞</div>
+          <div class="impact-label">Always Free</div>
+          <div class="impact-sub">No login, no ads, no fees</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="about-section alt-bg">
+    <div class="about-inner">
+      <div class="section-label-row">
+        <span class="section-pill">⚙️ How It Works</span>
+      </div>
+      <h2 class="section-title">Three Steps to <span class="gradient-text">Your Scheme</span></h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">🗣️</div>
+          <h4>Describe Yourself</h4>
+          <p>Tell YojanaBot who you are — a student, farmer, unemployed youth, or a woman in need — by typing or using voice input in your preferred language.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon">🧠</div>
+          <h4>AI Matches Schemes</h4>
+          <p>Our keyword-intelligence engine scans 18+ schemes across 5 categories, scores each one against your profile, and ranks the best matches instantly.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon">📋</div>
+          <h4>Apply Directly</h4>
+          <p>Each result card shows benefits, eligibility, and an <strong>Apply Now</strong> button that links directly to the official government portal — no middleman.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="section-label-row">
+        <span class="section-pill">🛠️ Tech Stack</span>
+      </div>
+      <h2 class="section-title">Built with <span class="gradient-text">Modern Web</span> Tech</h2>
+      <div class="tech-grid">
+        <div class="tech-card glass-card">
+          <div class="tech-icon">🌐</div>
+          <h4>HTML5</h4>
+          <p>Semantic, accessible markup structure with ARIA roles</p>
+        </div>
+        <div class="tech-card glass-card">
+          <div class="tech-icon">🎨</div>
+          <h4>CSS3</h4>
+          <p>Glassmorphism, CSS animations, custom properties, grid & flexbox</p>
+        </div>
+        <div class="tech-card glass-card">
+          <div class="tech-icon">⚡</div>
+          <h4>Vanilla JS</h4>
+          <p>Zero dependencies — pure JS for NLP, state, DOM, and voice API</p>
+        </div>
+        <div class="tech-card glass-card">
+          <div class="tech-icon">📦</div>
+          <h4>JSON Data</h4>
+          <p>Scheme database stored in structured JSON with bilingual fields</p>
+        </div>
+        <div class="tech-card glass-card">
+          <div class="tech-icon">🎙️</div>
+          <h4>Web Speech API</h4>
+          <p>Browser-native voice recognition — English & Hindi, no extra library</p>
+        </div>
+        <div class="tech-card glass-card">
+          <div class="tech-icon">📱</div>
+          <h4>Responsive Design</h4>
+          <p>Mobile-first layout — works flawlessly on phone, tablet, and desktop</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES DEEP DIVE -->
+  <section class="about-section alt-bg">
+    <div class="about-inner">
+      <div class="section-label-row">
+        <span class="section-pill">✨ Key Features</span>
+      </div>
+      <h2 class="section-title">Everything You <span class="gradient-text">Need</span></h2>
+      <div class="features-deep-grid">
+        <div class="feat-deep-card">
+          <div class="feat-deep-icon">🎙️</div>
+          <div>
+            <h4>Voice Typing</h4>
+            <p>Speak naturally in English or Hindi. The Web Speech API transcribes your voice directly into the chat — perfect for citizens unfamiliar with typing.</p>
+          </div>
+        </div>
+        <div class="feat-deep-card">
+          <div class="feat-deep-icon">🌏</div>
+          <div>
+            <h4>Bilingual Interface</h4>
+            <p>Toggle between English and Hindi at any time. All UI text, scheme data, benefits, and eligibility descriptions switch language instantly.</p>
+          </div>
+        </div>
+        <div class="feat-deep-card">
+          <div class="feat-deep-icon">🔍</div>
+          <div>
+            <h4>Smart NLP Matching</h4>
+            <p>A scoring-based keyword engine detects your profile (farmer, student, etc.) from natural conversation and ranks the most relevant schemes first.</p>
+          </div>
+        </div>
+        <div class="feat-deep-card">
+          <div class="feat-deep-icon">📊</div>
+          <div>
+            <h4>Live Dashboard</h4>
+            <p>Explore all 18+ schemes visually on the Dashboard page — filter by category, search by keyword, and see scheme statistics at a glance.</p>
+          </div>
+        </div>
+        <div class="feat-deep-card">
+          <div class="feat-deep-icon">📍</div>
+          <div>
+            <h4>State Selector</h4>
+            <p>Select your state to surface location-relevant schemes. The filter applies automatically across both chat results and dashboard cards.</p>
+          </div>
+        </div>
+        <div class="feat-deep-card">
+          <div class="feat-deep-icon">🛡️</div>
+          <div>
+            <h4>Privacy-First</h4>
+            <p>No data is stored, no login required, and all voice processing happens 100% on-device. Your conversations never leave your browser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="section-label-row">
+        <span class="section-pill">👥 Team</span>
+      </div>
+      <h2 class="section-title">Made with <span class="gradient-text">❤️ for Bharat</span></h2>
+      <div class="team-grid">
+        <div class="team-card glass-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg,#3b82f6,#6366f1);">KM</div>
+          <div class="team-info">
+            <h4>Kushagra Maurya</h4>
+            <span class="team-role">Full-Stack Developer</span>
+            <p>Built the AI matching engine and bilingual architecture</p>
+          </div>
+        </div>
+        <div class="team-card glass-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444);">SS</div>
+          <div class="team-info">
+            <h4>Samriddhi Srivastava</h4>
+            <span class="team-role">UI/UX Designer</span>
+            <p>Designed the glassmorphism system and user experience flows</p>
+          </div>
+        </div>
+        <div class="team-card glass-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg,#10b981,#3b82f6);">MP</div>
+          <div class="team-info">
+            <h4>Manya Pandey</h4>
+            <span class="team-role">Data Researcher</span>
+            <p>Curated and verified all scheme data from official government sources</p>
+          </div>
+        </div>
+        
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <div class="about-inner">
+      <div class="cta-card glass-card">
+        <h2>Ready to Find Your <span class="gradient-text">Schemes?</span></h2>
+        <p>Join thousands of citizens who have already discovered their government entitlements through YojanaBot.</p>
+        <div class="cta-btns">
+          <a href="index.html#chatSection" class="btn-primary">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-5h2v5zm0-7H9V4h2v2z" fill="currentColor"/></svg>
+            Start Chatting
+          </a>
+          <a href="dashboard.html" class="btn-secondary">
+            View Dashboard
+            <svg viewBox="0 0 20 20" fill="none"><path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">YojanaBot</span>
+        <span>— AI for Bharat 🇮🇳</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <p class="footer-note">Built for Hackathon · Data sourced from official Indian government portals</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll + hamburger for about page
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.glass-card, .step-card, .impact-card, .feat-deep-card, .team-card').forEach(el => {
+      el.classList.add('reveal-on-scroll');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
