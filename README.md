@@ -29,5 +29,13 @@ A multilingual AI chatbot that helps users discover schemes based on their needs
 ## 📌 Impact
 Bridges gap between government schemes and common citizens.
 
+## 📸 Screenshots
+
+### Homepage UI
+![Homepage](homepage-ui.png)
+
+### Chatbot Demo
+![Chatbot](chatbot-ui.jpg)
+
 ---
 Made for INNOVATHON 2026 🚀
